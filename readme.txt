@@ -36,7 +36,7 @@ To learn more about OggChat visit us at [OggChat.com](http://www.oggchat.com/).
 == Installation ==
 
 1. Extract all files from the ZIP archive keeping the file structure intact.
-2. Upload the `oggchat-live-chat` folder to the `/wp-content/plugins/` directory.
+2. Upload the `oggchat-live-chat-software` folder to the `/wp-content/plugins/` directory.
 3. Activate the plugin through the `Plugins` menu in WordPress.
 4. Go to the `OggChat Settings` menu which is located under the `Settings` menu in the admin interface.
 5. Enter your OggChat Chat Key found on the Dashboard in your OggChat account.  You can sign up for a free trial at [OggChat.com](http://www.oggchat.com/).
