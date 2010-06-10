@@ -8,9 +8,9 @@ Author: OggChat
 Author URI: http://www.oggchat.com/
 */
 
-$plugurldir = get_option('siteurl').'/'.PLUGINDIR.'/oggchat-live-chat/';
+$plugurldir = get_option('siteurl').'/'.PLUGINDIR.'/oggchat-live-chat-software/';
 $oggchat_domain = 'OggChatLiveChat';
-load_plugin_textdomain($oggchat_domain, 'wp-content/plugins/oggchat-live-chat');
+load_plugin_textdomain($oggchat_domain, 'wp-content/plugins/oggchat-live-chat-software');
 add_action('init', 'oggchat_init');
 add_action('wp_footer', 'oggchat_insert');
 add_action('admin_notices', 'oggchat_notice');
