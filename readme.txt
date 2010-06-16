@@ -1,6 +1,6 @@
 === OggChat Live Chat ===
 Contributors: OggChat
-Tags: live chat, live chat software, chat software, live support, customer service, oggchat, live help, helpdesk, wordpress, plugin, admin, chat, iphone, blackberry, gmail, google talk, google apps, widget, plugin, sidebar, admin, livechat
+Tags: live chat, live chat software, enhancement, chat software, live support, customer service, oggchat, live help, helpdesk, page, wordpress, plugin, admin, chat, iphone, blackberry, gmail, google talk, google apps, widget, sidebar, admin, livechat
 Requires at least: 2.7
 Tested up to: 2.9.2
 Stable tag: 1.0.3
@@ -15,19 +15,19 @@ A plugin that allows website owners to add an OggChat live chat widget to their 
 
 == Description ==
 
-OggChat Live Chat lets you offer advanced live help right from your site.  Just upload the plugin, enter your OggChat Chat Key, and immediately start interacting with website visitors.  OggChat offers a Free Trial.
+OggChat Live Chat lets you interact with website visitors right from your IM.  Just upload the plugin, enter your OggChat Chat Key, and immediately start offering live chat and live support on your website.
 
 **Why choose OggChat?**
 
 * Simple Live Chat Installation
 
-* Chat using the tools you already know - Gmail, Google Talk, Adium, iChat, iPhone, BlackBerry, Android
+* Chat right from your Instant Messenger - Gmail, Google Talk, Adium, iChat, iPhone, BlackBerry, Android
 
-* Monitor Website Visitors including Geo-Location, Visitor Footprint, and Browser Information 
+* Monitor Website Visitors as they enter your website.  Send proactive chat requests to them.
 
-* Customize widget look and feel: Location, language, logos, default response messages
+* Customize the widget look and feel: Location, language, logos, default response messages
 
-* Live chat from anywhere, your computer or your mobile phone.
+* Select from Multiple Languages
 
 
 To learn more about OggChat visit us at [OggChat.com](http://www.oggchat.com/).
