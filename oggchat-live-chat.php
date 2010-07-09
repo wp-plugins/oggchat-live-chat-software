@@ -132,13 +132,12 @@ function oggchat_add_settings_page() {
 function oggchat_create_menu() {
 
 //create new top-level menu
-    add_menu_page('Account Configuration', 'OggChat', 'administrator', 'OGGCHAT_account_config', 'OGGCHAT_account_config', OGGCHAT_SMALL_LOGO);
-
-    add_submenu_page('OGGCHAT_account_config', 'Dashboard', 'Dashboard', 'administrator', 'OGGCHAT_account_config', 'OGGCHAT_dashboard');
+    add_menu_page('Account Configuration', 'OggChat', 'administrator', 'OGGCHAT_dashboard', 'OGGCHAT_dashboard', OGGCHAT_SMALL_LOGO);
 
 
-    //call register settings function
-    add_action( 'admin_init', 'register_mysettings' );
+    add_submenu_page('OGGCHAT_dashboard', 'Dashboard', 'Dashboard', 'administrator', 'OGGCHAT_dashboard', 'OGGCHAT_dashboard');
+
+
 }
 
 ?>
