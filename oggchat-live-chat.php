@@ -40,11 +40,7 @@ function oggchat_insert() {
         get_currentuserinfo();
         echo("\n\n<!-- Start OggChat Button <http://www.oggchat.com/> -->\n<div id=\"oggchat\"></div><script type=\"text/javascript\" src=\"https://oggchat.icoa.com/js/button.js\"></script>\n<script type=\"text/javascript\">var page ={\n\t");
 
-        if(isset($current_user) && $current_user->ID !== 0) {
-            echo("'cid' : '".get_option('oggchatID')."',");
-        } else {
-            echo("'cid' : '',");
-        }
+        echo("'cid' : '".get_option('oggchatID')."',");
         echo("\n'bg_color' : '".get_option('oggchatTabColor')."',\n'hover_color' : '".get_option('oggchatTabHoverColor')."',\n'website' : 'wordpress',\n'top_margin' : '170px','right_margin' : '170px',\n'window_height' : '400px',\n'window_width' : '330px',\n'align' : '".get_option('oggchatLocation')."'}");
 
         echo("\nbutton(page);\n</script>\n<!-- End OggChat Button <http://www.oggchat.com/>-->\n\n");
