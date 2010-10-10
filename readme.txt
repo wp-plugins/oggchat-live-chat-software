@@ -3,11 +3,14 @@ Contributors: OggChat
 Tags: live chat, live chat software, enhancement, chat software, live support, customer service, oggchat, live help, helpdesk, page, wordpress, plugin, admin, chat, iphone, blackberry, gmail, google talk, google apps, widget, sidebar, admin, livechat, widget
 Requires at least: 2.7
 Tested up to: 3.0.1
-Stable tag: 1.1.1
+Stable tag: 1.2
 
-A plugin that allows website owners to add an OggChat live chat widget to their WordPress website.
+A live chat plugin that helps you to increase sales and improve service by incorporating an OggChat live chat software widget in your WordPress website.
 
 == Changelog ==
+
+= 1.2 =
+* Improvements to Live Chat Script
 
 = 1.1.1 =
 * Release to support 3.0.1 and correctly modify chat key.

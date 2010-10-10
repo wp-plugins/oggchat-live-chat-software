@@ -2,8 +2,8 @@
 /*
 Plugin Name: OggChat Live Chat Widget
 Plugin URI: http://www.oggchat.com
-Description: OggChat is a unique live chat solution that lets you interact directly with website visitors right from Gmail, your Instant Messenger, or your iPhone, BlackBerry, or Android mobile phone.
-Version: 1.1.1
+Description: OggChat is a unique live chat software solution that integrates directly with Gmail, Google Talk, and Google Apps and lets you interact directly with website visitors right from your preferred Instant Messenger on your desktop , iPhone, BlackBerry, or Android mobile phone.
+Version: 1.2
 Author: OggChat
 Author URI: http://www.oggchat.com/
 */
