@@ -5,7 +5,7 @@ Requires at least: 2.7
 Tested up to: 3.0.1
 Stable tag: 1.2.0
 
-A live chat plugin that helps you to increase sales and improve service by incorporating an OggChat live chat software widget in your WordPress website.
+A live chat plugin that helps you increase sales and improve service by incorporating an OggChat live chat software widget in your WordPress website.
 
 == Changelog ==
 
