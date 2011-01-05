@@ -9,7 +9,7 @@ A live chat plugin that helps you to increase sales and improve service by incor
 
 == Changelog ==
 
-= 1.2.1 =
+= 1.2.2 =
 * Support for Canned Responses
 
 = 1.2 =
