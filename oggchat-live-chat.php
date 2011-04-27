@@ -3,7 +3,7 @@
 Plugin Name: OggChat Live Chat Widget
 Plugin URI: http://www.oggchat.com
 Description: OggChat is a unique live chat software solution that integrates directly with Gmail, Google Talk, and Google Apps and lets you interact directly with website visitors right from your preferred Instant Messenger on your desktop , iPhone, BlackBerry, or Android mobile phone.
-Version: 1.2.3
+Version: 1.2.4
 Author: OggChat
 Author URI: http://www.oggchat.com/
 */
@@ -16,7 +16,7 @@ add_action('wp_footer', 'oggchat_insert');
 add_action('admin_notices', 'oggchat_notice');
 add_filter('plugin_action_links', 'oggchat_plugin_actions', 10, 2);
 
-define('OGGCHAT_DASHBOARD_URL', "https://oggchat.icoa.com/member.jsp");
+define('OGGCHAT_DASHBOARD_URL', "https://oggchat2.icoa.com/member.jsp");
 define('OGGCHAT_SMALL_LOGO',$plugurldir.'/ocsq.png');
 
 function oggchat_init() {
@@ -38,7 +38,7 @@ function oggchat_insert() {
 
     if(get_option('oggchatID')) {
         get_currentuserinfo();
-        echo("\n\n<!-- Start OggChat Button <http://www.oggchat.com/> -->\n<div id=\"oggchat\"></div><script type=\"text/javascript\" src=\"https://oggchat.icoa.com/js/button.js\"></script>\n<script type=\"text/javascript\">var page ={\n\t");
+        echo("\n\n<!-- Start OggChat Button <http://www.oggchat.com/> -->\n<div id=\"oggchat\"></div><script type=\"text/javascript\" src=\"https://oggchat2.icoa.com/js/button_oggchat2.js\"></script>\n<script type=\"text/javascript\">var page ={\n\t");
 
         echo("'cid' : '".get_option('oggchatID')."',");
         echo("\n'bg_color' : '".get_option('oggchatTabColor')."',\n'hover_color' : '".get_option('oggchatTabHoverColor')."',\n'website' : 'wordpress',\n'top_margin' : '170px','right_margin' : '170px',\n'window_height' : '400px',\n'window_width' : '330px',\n'align' : '".get_option('oggchatLocation')."'}");
