@@ -2,8 +2,8 @@
 /*
 Plugin Name: OggChat Live Chat Widget
 Plugin URI: http://www.oggchat.com
-Description: OggChat is a unique live chat software solution that integrates directly with Gmail, Google Talk, and Google Apps and lets you interact directly with website visitors right from your preferred Instant Messenger on your desktop , iPhone, BlackBerry, or Android mobile phone.
-Version: 1.2.5
+Description: OggChat is a unique live chat software solution that integrates directly with Gmail, Google Talk, and Google Apps and lets you interact directly with website visitors right from your preferred Instant Messenger on your desktop , iPhone, Android, or BlackBerry mobile phone.
+Version: 1.3.0
 Author: OggChat
 Author URI: http://www.oggchat.com/
 */
@@ -16,7 +16,7 @@ add_action('wp_footer', 'oggchat_insert');
 add_action('admin_notices', 'oggchat_notice');
 add_filter('plugin_action_links', 'oggchat_plugin_actions', 10, 2);
 
-define('OGGCHAT_DASHBOARD_URL', "https://oggchat2.icoa.com/member.jsp");
+define('OGGCHAT_DASHBOARD_URL', "https://oggchat3.icoa.com/member.jsp");
 define('OGGCHAT_SMALL_LOGO',$plugurldir.'/ocsq.png');
 
 function oggchat_init() {
@@ -38,17 +38,42 @@ function oggchat_insert() {
 
     if(get_option('oggchatID')) {
         get_currentuserinfo();
-        echo("\n\n<!-- Start OggChat Button <http://www.oggchat.com/> -->\n<div id=\"oggchat\"></div><script type=\"text/javascript\" src=\"https://oggchat2.icoa.com/js/button_oggchat2.js\"></script>\n<script type=\"text/javascript\">var page ={\n\t");
+        echo("\n\n<!-- OggChat Tab Button --><div id=\"oggchat\" style=\"z-index:100 \"></div><div id=\"oggwindowholder\"><span style=\"display:none\"></span></div><script type=\"text/javascript\">");
+        echo("\nvar page ={");
+        echo("\n'tab_align':'".get_option('oggchatLocation')."',");
+        echo("\n'tab_margin_right':'".get_option('oggchatMarginRight')."',");
+        echo("\n'popup_margin_right':'".get_option('oggchatPopupMarginRight')."',");
+        
+        if(get_option('oggchatLocation')=='top'){
+            echo("\n'popup_margin_top':'".get_option('oggchatPopupMarginBottom')."',");
+        } else {
+            echo("\n'popup_margin_bottom':'".get_option('oggchatPopupMarginBottom')."',");
+        }
+        echo("\n'tab_bg_color':'".get_option('oggchatTabColor')."',");
+        echo("\n'tab_hover_color':'".get_option('oggchatTabHoverColor')."',");
+        echo("\n'website':'',");
+        echo("\n'p':'".get_option('oggchatProactiveTimer')."',");
+        echo("\n'online_text':'".get_option('oggchatOnlineText')."',");
+        echo("\n'offline_text': '".get_option('oggchatOfflineText')."',");
+        echo("\n'font_family':'Arial',");
+        echo("\n'font_size':'11pt',");
+        echo("\n'font_color':'#FFFFFF', ");
+        echo("\n'host':'oggchat3.icoa.com',");
+        echo("\n'cid':'".get_option('oggchatID')."',");
+        echo("\n};");
+        echo("\n(function() {function oggchat(){");
+        echo("\nvar base = ((\"https:\" == document.location.protocol) ? \"https://oggchat3.icoa.com\" : \"http://oggchat3.icoa.com\");");
+        echo("\nvar s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = base+'/js/oggwindow.js';");
 
-        echo("'cid' : '".get_option('oggchatID')."',");
-        echo("\n'bg_color' : '".get_option('oggchatTabColor')."',\n'hover_color' : '".get_option('oggchatTabHoverColor')."',\n'website' : 'wordpress',\n'top_margin' : '170px','right_margin' : '170px',\n'window_height' : '400px',\n'window_width' : '330px',\n'align' : '".get_option('oggchatLocation')."'}");
-
-        echo("\nbutton(page);\n</script>\n<!-- End OggChat Button <http://www.oggchat.com/>-->\n\n");
+        echo("\nvar x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);};");
+        echo("\nif (window.attachEvent)window.attachEvent('onload', oggchat);else window.addEventListener('load', oggchat, false);");
+        echo("\n})();");
+        echo("\n</script>\n\n");
     }
 }
 
 function oggchat_notice() {
-    if(!get_option('oggchatID')) echo('<div class="error"><p><strong>'.sprintf(__('OggChat Live Chat is disabled. Please go to the <a href="%s">plugin settings</a> to enter a valid chat key.' ), admin_url('options-general.php?page=oggchat-live-chat')).'</strong></p></div>');
+    if(!get_option('oggchatID')) echo('<div class="error"><p><strong>'.sprintf(__('OggChat Live Chat is disabled. Please go to the <a href="%s">plugin settings</a> to enter a valid chat key.  Your chat key can be found on your Dashboard Page after you complete the setup tasks at OggChat.com' ), admin_url('options-general.php?page=oggchat-live-chat')).'</strong></p></div>');
 }
 
 function oggchat_plugin_actions($links, $file) {
@@ -74,42 +99,55 @@ function oggchat_add_settings_page() {
                 <form method="post" action="options.php">
                     <p style="text-align:center"><?php wp_nonce_field('update-options') ?><a href="http://www.oggchat.com/" title="<?php _e('Unique live chat software that lets you chat right from Gmail, Google Talk, or your Mobile Phone', $oggchat_domain) ?>"><img src="<?php echo($plugurldir) ?>oggchat.png" height="74" width="227" alt="<?php _e('OggChat Live Chat', $oggchat_domain) ?>" /></a></p>
 
-                    <p><label for="oggchatID"><?php printf(__('Enter your %1$sIf you don\'t have an account, click here to learn more about OggChat%2$sOggChat%3$s chat key below to activate the plugin.', $oggchat_domain), '<strong><a href="http://www.oggchat.com/" title="', '">', '</a></strong>') ?></label><br /><input type="text" name="oggchatID" id="oggchatID" value="<?php echo(get_option('oggchatID')) ?>" style="width:100%" /><small class="nonessential"><?php _e('<br>Your Chat Key is located on your OggChat Dashboard.', $oggchat_domain) ?></small></p>
+                    <p><label for="oggchatID"><?php printf(__('Enter your %1$sIf you don\'t have an account, click here to learn more about OggChat%2$sOggChat%3$s chat key below to activate the plugin.', $oggchat_domain), '<strong><a href="http://www.oggchat.com/" title="', '">', '</a></strong>') ?></label><br /><input type="text" name="oggchatID" id="oggchatID" value="<?php echo(get_option('oggchatID')) ?>" style="width:100%" /><small class="nonessential"><?php _e('<br>Your Chat Key is located at OggChat.com on your Member Dashboard.', $oggchat_domain) ?></small></p>
                     <p>
                         <b>Customize your Chat Tab</b>
                     <table>
                         <tr>
-                            <td><label for="oggchatLocation">Tab Location:</label></td>
+                            <td><label for="oggchatLocation">Widget Location:</label></td>
                             <td>
                                 <select name="oggchatLocation" id="oggchatLocation" style="width:150px">
-                                    <option value="left" <?php if (get_option('oggchatLocation') == 'left') {printf('selected');}?> > Left </option>
-                                    <option value="right" <?php if (get_option('oggchatLocation') == 'right') {printf('selected');}?> > Right </option>
+<option value="bottom" <?php if (get_option('oggchatLocation') == 'bottom') {printf('selected');}?> > Bottom </option>
                                     <option value="top" <?php if (get_option('oggchatLocation') == 'top') {printf('selected');}?> > Top </option>
-                                    <option value="bottom" <?php if (get_option('oggchatLocation') == 'bottom') {printf('selected');}?> > Bottom </option>
+                                    
                                 </select>
                             </td>
                         </tr>
                         <tr>
+                            <td><label>Online Text:</label></td>
+                            <td><input type="text" name="oggchatOnlineText" id="oggchatOnlineText" value="<?php if (get_option('oggchatOnlineText') == '') {echo('Need Help?  Click to Chat');} else {echo(get_option('oggchatOnlineText'));} ?>"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Offline Text:</label></td>
+                            <td><input type="text" name="oggchatOfflineText" id="oggchatOfflineText" value="<?php if (get_option('oggchatOfflineText') == '') {echo('Offline - Leave a message');} else {echo(get_option('oggchatOfflineText'));} ?>"/></td>
+                        </tr>
+                        <tr>
                             <td><label>Tab Color:</label></td>
-                            <td><input type="text" name="oggchatTabColor" id="oggChatTabColor" value="<?php if (get_option('oggchatTabColor') == '') {echo('#0066cc');} else {echo(get_option('oggChatTabColor'));} ?>"/></td>
+                            <td><input type="text" name="oggchatTabColor" id="oggChatTabColor" value="<?php if (get_option('oggchatTabColor') == '') {echo('#333333');} else {echo(get_option('oggChatTabColor'));} ?>"/></td>
                         </tr>
                         <tr>
                             <td><label>Tab Hover Color:</label></td>
-                            <td><input type="text" name="oggchatTabHoverColor" id="oggChatTabHoverColor" value="<?php if (get_option('oggchatTabHoverColor') == '') {echo('#ff0000');} else {echo(get_option('oggChatTabHoverColor'));} ?>"/></td>
+                            <td><input type="text" name="oggchatTabHoverColor" id="oggChatTabHoverColor" value="<?php if (get_option('oggchatTabHoverColor') == '') {echo('#666666');} else {echo(get_option('oggChatTabHoverColor'));} ?>"/></td>
                         </td>
+                        </tr>
+                        <tr>
+                            <td><label>Margin From Right:</label></td>
+                            <td><input type="text" name="oggchatMarginRight" id="oggchatMarginRight" value="<?php if (get_option('oggchatMarginRight') == '') {echo('45px');} else {echo(get_option('oggchatMarginRight'));} ?>"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Popup Margin Right:</label></td>
+                            <td><input type="text" name="oggchatPopupMarginRight" id="oggchatPopupMarginRight" value="<?php if (get_option('oggchatPopupMarginRight') == '') {echo('40px');} else {echo(get_option('oggchatPopupMarginRight'));} ?>"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>Popup Margin Top or Bottom:</label></td>
+                            <td><input type="text" name="oggchatPopupMarginBottom" id="oggchatPopupMarginBottom" value="<?php if (get_option('oggchatPopupMarginBottom') == '') {echo('30px');} else {echo(get_option('oggchatPopupMarginBottom'));} ?>"/></td>
                         </tr>
                     </table>
                     </p>
-
-
                     <p class="submit" style="padding:0"><input type="hidden" name="action" value="update" />
-                        <input type="hidden" name="page_options" value="oggchatID, oggchatLocation, oggchatTabColor, oggchatTabHoverColor" />
-
-
-
+                        <input type="hidden" name="page_options" value="oggchatID, oggchatLocation, oggchatTabColor, oggchatTabHoverColor, oggchatOnlineText, oggchatOfflineText, oggchatMarginRight, oggchatPopupMarginRight, oggchatPopupMarginBottom" />
                         <input type="submit" name="oggchatSubmit" id="oggchatSubmit" value="<?php _e('Save Settings', $oggchat_domain) ?>" class="button-primary" /> </p>
-
-                    <p style="font-size:smaller;color:#999239;background-color:#ffffe0;padding:0.4em 0.6em !important;border:1px solid #e6db55;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px"><?php printf(__('Don&rsquo;t have an OggChat account? %1$sRegister now for a free trial!%2$sRegister now for a Free Trial!%3$s', $oggchat_domain), '<a href="https://oggchat.icoa.com/signup.jsp" title="', '">', '</a>') ?></p>			</form>
+                    <p style="font-size:smaller;color:#999239;background-color:#ffffe0;padding:0.4em 0.6em !important;border:1px solid #e6db55;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px"><?php printf(__('Don&rsquo;t have an OggChat account? %1$sRegister now for a free trial!%2$sRegister now for a Free Trial!%3$s', $oggchat_domain), '<a href="https://oggchat3.icoa.com/signup.jsp" title="', '">', '</a>') ?></p>			</form>
             </div>
         </div>
         <div class="postbox" style="float:left;width:38em">
@@ -126,14 +164,8 @@ function oggchat_add_settings_page() {
 }
 
 function oggchat_create_menu() {
-
-//create new top-level menu
+    //create new top-level menu
     add_menu_page('Account Configuration', 'OggChat', 'administrator', 'OGGCHAT_dashboard', 'OGGCHAT_dashboard', OGGCHAT_SMALL_LOGO);
-
-
     add_submenu_page('OGGCHAT_dashboard', 'Dashboard', 'Dashboard', 'administrator', 'OGGCHAT_dashboard', 'OGGCHAT_dashboard');
-
-
 }
-
 ?>
