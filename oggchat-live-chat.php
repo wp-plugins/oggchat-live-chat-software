@@ -59,7 +59,7 @@ function oggchat_insert() {
         echo("\n'font_size':'11pt',");
         echo("\n'font_color':'#FFFFFF', ");
         echo("\n'host':'oggchat3.icoa.com',");
-        echo("\n'cid':'".get_option('oggchatID')."',");
+        echo("\n'cid':'".get_option('oggchatID')."'");
         echo("\n};");
         echo("\n(function() {function oggchat(){");
         echo("\nvar base = ((\"https:\" == document.location.protocol) ? \"https://oggchat3.icoa.com\" : \"http://oggchat3.icoa.com\");");
