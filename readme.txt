@@ -1,13 +1,16 @@
 === OggChat Live Chat ===
 Contributors: OggChat
-Tags: live chat, live chat software, enhancement, chat software, live support, customer service, oggchat, live help, helpdesk, page, wordpress, plugin, admin, chat, iphone, blackberry, gmail, google talk, google apps, widget, sidebar, admin, livechat, widget, google
-Requires at least: 2.7
-Tested up to: 3.1.1
-Stable tag: 1.3.2
+Tags: live chat, live chat software, chat link, chat module, widget, enhancement, chat software, live support, customer service, oggchat, live help, helpdesk, page, wordpress, plugin, admin, chat, iphone, gmail, google talk, google apps, widget, sidebar, admin, livechat, widget, google, olark, snap engage
+Requires at least: 3.1
+Tested up to: 3.6.1
+Stable tag: 1.3.3
 
-A live chat plugin that helps you to increase sales and improve service by incorporating an OggChat live chat widget in your WordPress website.
+Live Chat Widget that helps you to increase sales and improve service by incorporating OggChat Live Chat in your WordPress website.
 
 == Changelog ==
+
+= 1.3.3 =
+* Support for proactive chat
 
 = 1.3.2 =
 * Fixed issue with parameters sent to script.
@@ -36,6 +39,10 @@ A live chat plugin that helps you to increase sales and improve service by incor
 
 Interact directly with website visitors and increase sales with OggChat Live Chat.  Chat with visitors from your IM or mobile phone.  Just upload the plugin, enter your OggChat Chat Key, and immediately start offering live chat and live support on your website.
 
+To configure the live chat plugin, you need an OggChat account.  Already have an accout?  Great!  Otherwise, sign up for a free 14-day trial at <a href="http://www.oggchat.com">www.oggchat.com</a>.
+
+OggChat offers a free 14-day free trial.  
+
 **Why choose OggChat?**
 
 * Simple Live Chat Installation
@@ -53,12 +60,12 @@ To learn more about OggChat visit us at [OggChat.com](http://www.oggchat.com/).
 
 
 == Installation ==
-
+1. If you don't have an OggChat account, please create one now at www.oggchat.com. After signing up, follow the setup tasks to obtain your OggChat Key.
 1. Extract the files from the ZIP archive maintaining the file structure.
 2. Upload the `oggchat-live-chat-software` folder to your `/wp-content/plugins/` directory.
 3. Select the Plugin and click Activate in WordPress.
 4. Go to `Settings` then `OggChat Settings`.
-5. Enter your OggChat Chat Key found on the Dashboard in your OggChat account.  You can sign up for a free trial at [OggChat.com](http://www.oggchat.com/).
+5. Enter your OggChat Chat Key found on the Dashboard in your OggChat account.  
 
 == Screenshots ==
 
@@ -70,13 +77,17 @@ To learn more about OggChat visit us at [OggChat.com](http://www.oggchat.com/).
 
 == Frequently Asked Questions ==
 
+= Do I need an OggChat account for my chat widget =
+
+Yes, you do.  You can sign up for a free trial at [OggChat.com](http://www.oggchat.com/).. 
+
 = Do I have to install software on my server to get this working? =
 
 No, Oggchat is a hosted live chat service. Simply sign up for the service, grab your chat key, and save it in your plugin.
 
 = Can I try OggChat for Free? =
 
-Yes, all OggChat subscriptions include a 14-Day free trial. 
+Yes, all OggChat subscriptions include a 14-Day free trial.  After that we offer inexpensive pricing plans. 
 
 = Can I upload my own chat buttons? =
 
